@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.10
+    steps:
+      - checkout
+      - run: |
+			ENV=production
+	  - run: |
+			echo $ENV
+  test:
+    docker:
+      - image: circleci/golang:1.10
+    steps:
+      - checkout
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
