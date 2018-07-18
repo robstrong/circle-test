@@ -5,16 +5,24 @@ jobs:
       - image: circleci/golang:1.10
     steps:
       - checkout
-      - run: |
-			ENV=production
-	  - run: |
-			echo $ENV
+      - run:
+          name: set env
+          command: |
+            ENV=production
+      - run:
+          name: echo env
+          command: |
+            echo $ENV
   test:
     docker:
       - image: circleci/golang:1.10
     steps:
       - checkout
-      - echo Hello
+      - run:
+          name: Say hello
+          command: |
+            echo Hello
+
 workflows:
   version: 2
   build_and_test:
