@@ -8,7 +8,7 @@ jobs:
       - run:
           name: set env
           command: |
-            source export ENV=production
+            export ENV=production
       - run:
           name: echo env
           command: |
